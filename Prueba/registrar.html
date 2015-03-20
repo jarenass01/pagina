@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>Registro</title>
+</head>
+<body>
+
+
+
+
+<form action="registro.php" method="POST">
+
+
+Nombres: <input type="text" name="nombres"/><br />
+Apellidos: <input type="text" name="apellidos"/><br />
+Fecha de Nacimiento: <input type="date" name="fecha_nacimiento"/><br />
+Ciudad: <input type="text" name="ciudad"/><br />
+Email: <input type="text" name="email"/><br />
+
+Usuario: <input type="text" name="usuario"/><br />
+Contrasena: <input type="text" name="contrasena"/><br />
+Repetir Contrasena: <input type="text" name="repetircontresana"/><br />
+
+<input type="submit" id="go" value="Registrar">
+<input type="button" id="cancel" value="Cancelar" onclick="window.location.href='index.html'">
+
+</form>
+
+<?php
+
+@mysql_query("INSERT INTO Usuarios (Usuario,Pass,Fecha) values ('$usuario','$contrasena',CURDATE())", $con) or die ("pro_insert_db");
+
+
+   		echo 'Ya estas registrado,y puedes empezar a hacer uso de la aplicacion';
+?>
+
+</body>
+
+</html>
